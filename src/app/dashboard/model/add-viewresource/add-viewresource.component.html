@@ -1,0 +1,48 @@
+<app-spinner *ngIf="spinner"></app-spinner>
+
+<div class="sticky-top bg-white p-4">
+  <div mat-dialog-title class="float-end" mat-dialog-close (click)="cancel()"><i class="fa fa-times" aria-hidden="true"></i></div>
+<h1 mat-dialog-title class="title text-center fw-bold mb-0" style="color: #13357b;">Add Resources</h1>
+<!-- <div class="line"></div> -->
+</div>
+<div>
+   <div class="form  p-4">
+    <form [formGroup]="resourceForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>Employee ID</mat-label>
+                <input matInput placeholder="Enter the employeeId" formControlName="employeeId">
+              </mat-form-field>
+        </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Enter the fullName" formControlName="fullName">
+              </mat-form-field>
+        </div>
+         <div class="form-group">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>Email ID</mat-label>
+                <input matInput placeholder="Enter emailId" formControlName="email">
+                <mat-error *ngIf="this.resourceForm.get('email')?.invalid && this.resourceForm.get('email')?.touched">
+                  Email address must include testyantra.in or testyantra.com
+              </mat-error>
+              </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width addproject" panelclass="addproject" appearance="outline">
+            <mat-label>Billable</mat-label>
+            <mat-select disableRipple formControlName="payment">
+              <mat-option value="Billable">Billable</mat-option>
+              <mat-option value="Non-Billable">Non-Billable</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn modalbtn" [disabled]="resourceForm.invalid">Submit</button>
+        </div>
+    </form>
+   </div>
+</div>
+
+

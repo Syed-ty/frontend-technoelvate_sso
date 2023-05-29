@@ -1,0 +1,25 @@
+.actionbtn i{
+  font-size: 25px;
+}
+.icon i{
+  color: #146389;
+  font-size: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+:host::ng-deep.mat-form-field-suffix .mat-icon-button {
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+:host::ng-deep.mat-form-field-appearance-outline .mat-form-field-label {
+  top: 1.84375em !important;
+  margin-top: 2px !important;
+}
+:host::ng-deep.projectdate.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0.58em !important;
+}
+.milestone-details .mat-dialog-title{
+  color: #13357b;
+    font-weight: 600;
+    font-size: 22px;
+}

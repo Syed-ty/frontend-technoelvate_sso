@@ -1,0 +1,71 @@
+table {
+  width: 100%;
+}
+input{
+border: none;
+}
+.search{
+top: 8px;
+right: 10px;
+}
+
+.actionbtn{
+  background: transparent;
+  outline: none;
+  border: none;
+}
+.containerdata{
+  width:97%;
+  margin-left:18px;
+}
+
+
+.modal-confirm{
+  color: #636363;
+}
+.modal-confirm .modal-content{
+  padding: 20px;
+  border-radius: 5px;
+  border:none;
+  text-align: center;
+  font-size: 14px;
+}
+.modal-confirm .modal-header{
+  border-bottom: none;
+  position: relative;
+}
+.modal-confirm h4{
+  text-align: center;
+  font-size: 26px;
+  margin:30px 0px -10px;
+}
+.modal-confirm .modelCloseBtn{
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.modal-confirm .modal-body{
+  color: #999;
+}
+.modal-confirm .icon-box{
+  width: 80px;
+  height: 80px;
+  margin: 25px auto 0px;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i{
+  font-size: 46px;
+  color: #f15e5e;
+  display: inline-block;
+  margin: 13px 0px 0px;
+}
+.modelSaveBtn{
+  background-color: #146389;
+  color: white;
+  padding: 8px 15px;
+}
+
+

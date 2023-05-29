@@ -1,0 +1,115 @@
+<app-spinner *ngIf="spinner"></app-spinner>
+
+<div class="sticky-top bg-white p-4">
+  <div mat-dialog-title class="float-end" mat-dialog-close (click)="cancel()"><i class="fa fa-times" aria-hidden="true"></i></div>
+<h1 mat-dialog-title class="title text-center fw-bold mb-0" style="color: #13357b;">Edit Project</h1>
+<!-- <div class="line"></div> -->
+</div>
+<div>
+   <div class="form  p-4">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Name</mat-label>
+          <input matInput placeholder="Enter the Project Name" formControlName="projectName">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>ClientName</mat-label>
+          <input matInput placeholder="Enter full name" formControlName="clientName">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Cost</mat-label>
+          <input matInput placeholder="Enter the project Cost" type="number" formControlName="projectCost">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Type</mat-label>
+          <mat-select disableRipple formControlName="projectType">
+            <mat-option value="Fixed Bid">Fixed Bid</mat-option>
+          <mat-option value="Time & Material">Time & Material</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label >Start Date</mat-label>
+              <input  matInput  [matDatepicker]="startdatepicker" [min]="minDate" [max]="todayDate"
+                 formControlName="startDate"  placeholder="MM/DD/YYYY">
+              <mat-datepicker-toggle matSuffix [for]="startdatepicker"
+                (click)="startdatepicker.open()"></mat-datepicker-toggle>
+              <mat-datepicker #startdatepicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>End Date</mat-label>
+          <input  matInput  [matDatepicker]="stopdatepicker"
+             formControlName="endDate"  placeholder="MM/DD/YYYY">
+          <mat-datepicker-toggle matSuffix [for]="stopdatepicker"
+            (click)="stopdatepicker.open()"></mat-datepicker-toggle>
+          <mat-datepicker #stopdatepicker></mat-datepicker>
+    </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Lead</mat-label>
+          <mat-select disableRipple formControlName="projectLead">
+            <mat-option value="Payyavula Rajasekhar">Payyavula Rajasekhar</mat-option>
+            <mat-option value="Rakesh N">Rakesh N</mat-option>
+            <mat-option value="Chandan K">Chandan K</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Manager</mat-label>
+          <mat-select disableRipple formControlName="projectManager">
+            <mat-option value="Veerabhadra Swamy B">Veerabhadra Swamy B</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width addproject" panelclass="addproject" appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select disableRipple formControlName="status">
+            <mat-option value="Yet to Start">Yet to Start</mat-option>
+            <mat-option value="InProgress">InProgress</mat-option>
+            <mat-option value="Closed">Closed</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Team Lead</mat-label>
+          <input matInput placeholder="Enter the teamLead" formControlName="teamLead">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Business Development Manager</mat-label>
+          <input matInput placeholder="Enter the Business Development Manager" formControlName="businessDevelopmentManger">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Remarks</mat-label>
+          <input matInput  formControlName="Remarks">
+        </mat-form-field>
+      </div>
+      <div class="form-group text-center">
+        <button class="btn modalbtn" type="submit" [disabled]="projectForm.invalid" >Submit</button>
+      </div>
+    </form>
+  </div>
+  </div>
+
+
+
+
+
+

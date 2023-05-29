@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+.content{
+    padding-top: 60px;
+    background-color: #ecf4f1;
+    height: 100%;
+    /* background-image: url('../../assets/images/background1.png'); */
+}
+.content-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    font-family: 'Rubik Bubbles', cursive;
+}
+.content-text h1 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    font-family: 'Abril Fatface', cursive;
+    color: #0196a1;
+    line-height: 1.24;
+}
+hr{
+    border-top: 2px solid;
+}
+
+.invoice-details .card::before{
+  content:'';
+  position: absolute;
+  width: 10px;
+  height: 60px;
+  background-color: #14145E;
+  right: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+i{
+  font-size: 18px;
+}
+

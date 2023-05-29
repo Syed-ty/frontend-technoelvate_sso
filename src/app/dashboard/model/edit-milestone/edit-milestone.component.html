@@ -1,0 +1,61 @@
+<app-spinner *ngIf="spinner"></app-spinner>
+<div class="sticky-top bg-white p-4">
+  <div mat-dialog-title class="float-end" mat-dialog-close (click)="cancel()"><i class="fa fa-times" aria-hidden="true"></i></div>
+<h1 mat-dialog-title class="title text-center fw-bold mb-0" style="color: #13357b;">Close MileStone</h1>
+<!-- <div class="line"></div> -->
+
+</div>
+<div>
+  <div class="form  p-4">
+    <form [formGroup]="MileStoneForm" (ngSubmit)="onSubmit()">
+      <h4 mat-dialog-title class="title  mb-0" style="color: #13357b;">
+        Kindly mark the actual end date of the milestone
+      </h4>
+
+        <div class="form-group d-none">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>MileStone </mat-label>
+                <input matInput placeholder="Enter the milestone" formControlName="milestone">
+              </mat-form-field>
+        </div>
+          <div class="form-group d-none">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>Payment Percent</mat-label>
+                <input matInput placeholder="Enter the fullName" formControlName="paymentPercent">
+              </mat-form-field>
+        </div>
+
+        <div class="form-group d-none">
+          <mat-form-field class="example-full-width projectdate" appearance="outline">
+            <mat-label >Start Date</mat-label>
+                <input  matInput  [matDatepicker]="startpicker" [min]="minDate" [max]="todayDate"
+                   formControlName="startMileStoneDate"  placeholder="MM/DD/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="startpicker"
+                  (click)="startpicker.open()"></mat-datepicker-toggle>
+                <mat-datepicker #startpicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width projectdate" appearance="outline">
+          <mat-label>end date</mat-label>
+          <input  matInput  [matDatepicker]="stoppicker" [min]="minDate"
+             formControlName="actualEndDate"  placeholder="MM/DD/YYYY">
+          <mat-datepicker-toggle matSuffix [for]="stoppicker"
+            (click)="stoppicker.open()"></mat-datepicker-toggle>
+          <mat-datepicker #stoppicker></mat-datepicker>
+       </mat-form-field>
+    </div>
+         <div class="form-group d-none">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>MileStone Details</mat-label>
+                <input matInput placeholder="Enter emailId" formControlName="milestonedetails">
+              </mat-form-field>
+        </div>
+         <div class="form-group text-center">
+            <button class="btn modalbtn" [disabled]="MileStoneForm.invalid">Submit</button>
+        </div>
+    </form>
+   </div>
+</div>
+
+

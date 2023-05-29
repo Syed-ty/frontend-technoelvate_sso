@@ -1,0 +1,249 @@
+/* table {
+  width: 100%;
+}
+input{
+border: none;
+}
+.search{
+top: 8px;
+right: 10px;
+}
+.btn{
+background: #7d2ae8;
+margin: 20px 0px;
+color: white;
+padding: 8px 30px;
+font-size: 14px;
+font-weight: 500;
+}*/
+/* .actionbtn{
+  background: transparent;
+  outline: none;
+  border: none;
+} */
+
+
+.navigate {
+  font: normal normal 600 19px/22px Muli;
+  letter-spacing: 0px;
+  padding-top: 31px;
+}
+
+
+/* table,tr,th,td{
+  border:1px solid black;
+} */
+td{
+  vertical-align: middle;
+}
+.container-fluid {
+font-family: muli, sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.header-title h2 {
+color: #1f3864;
+}
+
+.dropdown {
+float: right;
+}
+
+.dropdown-menu li a {
+color: black;
+text-align: center;
+font-size: 15px;
+padding: 0;
+}
+
+.dropdown-toggle::after {
+content: none;
+}
+
+.btn:focus {
+box-shadow: none;
+}
+
+.dropdown-item {
+cursor: pointer;
+}
+
+.dropdown-item:hover,
+.dropdown-menu:hover {
+background-color: var(--primary) !important;
+color: white !important;
+}
+.info{
+font-size: 14px;
+margin-left: 6px;
+}
+.next {
+padding: 6px 40px !important;
+color: var(--white);
+background-color: var(--primary);
+}
+
+.formFields {
+width: 90%;
+}
+
+.formLabels {
+font-weight: 600;
+}
+
+.dropdown img {
+width: 45px;
+}
+:host::ng-deep.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+transform: translateY(14%);
+}
+
+.dateWidth{
+width: 90%;
+}
+
+/*
+.inputfiled{
+border: 1px solid;
+border-radius: 3px;
+} */
+
+.paraInfo {
+  font-size: 14px;
+  font-family: "muli";
+  width: 40%;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.paraInfo1 {
+  width: 100%;
+  font-size: 16px;
+  font-family: 'muli';
+  margin-bottom: 0px;
+}
+.box{
+  transition: transform .2s;
+}
+.box:hover{
+  -ms-transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+  transform: scale(1.6);
+}
+.box img {
+  border-radius: 3px;
+  height: 100px;
+  width: 100px;
+  padding: 0px;
+  margin: 15px 5px 20px;
+}
+.label{
+  font-weight: bold;
+}
+.imageHeight{
+  display: inline-flex;
+  display: flex;
+  width: 200px;
+  flex-grow: 2;
+  flex-wrap: wrap;
+}
+.mat-card{
+  height: 250px;
+}
+.invoice-details .card::before{
+  content:'';
+  position: absolute;
+  width: 10px;
+  height: 80px;
+  background-color: #146389;
+  right: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+i{
+  font-size: 18px;
+}
+.project-details .card{
+  border: none;
+    border-radius: 19px;
+    box-shadow: 0px 0px 3px lightgrey;
+}
+.matCard{
+  height: 80px;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'FontAwesome';
+}
+
+.actionbtn{
+  background: transparent;
+  outline: none;
+  border: none;
+  color: black;
+}
+
+.addButton{
+background-color:#146389;
+color:white;
+}
+.deletebtn{
+  color: white !important;
+    background: #b11a1a;
+    height: 10px;
+    width: 10px;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+.modal-confirm{
+  color: #636363;
+}
+.modal-confirm .modal-content{
+  padding: 20px;
+  border-radius: 5px;
+  border:none;
+  text-align: center;
+  font-size: 14px;
+}
+.modal-confirm .modal-header{
+  border-bottom: none;
+  position: relative;
+}
+.modal-confirm h4{
+  text-align: center;
+  font-size: 26px;
+  margin:30px 0px -10px;
+}
+.modal-confirm .modelCloseBtn{
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.modal-confirm .modal-body{
+  color: #999;
+}
+.modal-confirm .icon-box{
+  width: 80px;
+  height: 80px;
+  margin: 25px auto 0px;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i{
+  font-size: 46px;
+  color: #f15e5e;
+  display: inline-block;
+  margin: 13px 0px 0px;
+}
+.modelSaveBtn{
+  background-color: #146389;
+  color: white;
+  padding: 8px 15px;
+}

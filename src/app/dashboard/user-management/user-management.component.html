@@ -1,0 +1,112 @@
+
+<app-spinner *ngIf="spinner"></app-spinner>
+<div class="container-fluid mt-2">
+  <div class="d-flex align-items-center justify-content-between searchStyle">
+      <div class="card search-input mt-3 me-2" style="margin:16px" >
+          <div class="form-groups">
+            <!-- <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+              [(ngModel)]="searchText" placeholder="Enter text to search"
+              autofocus> -->
+              <input type="text" class="form-control" name="fullName" placeholder="Search here..." (keyup)="applyFilter($event)" style="border-radius: 30px;">
+              <div class="position-absolute search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </div>
+          </div>
+          <!-- <ul class="list-group list-group-flush d-none">
+            <li class="list-group-item" *ngFor="let c of characters | filter: searchText" >
+              {{c}}
+            </li>
+          </ul> -->
+        </div>
+      <div class="d-flex">
+        <button class="btn tablebtn" (click)="openDialog()">Add User</button>
+      </div>
+  </div>
+      <div class="mt-3 w-100 overflow-scroll table-box mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort >
+            <!-- Position Column -->
+             <!-- <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> Serial No </th>
+              <td mat-cell *matCellDef="let element;let i = index"> {{i+1}}. </td>
+            </ng-container> -->
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="employeeId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="role">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+              <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element" style="width: 10%;">
+                <span class="d-flex">
+                  <button class="actionbtn" matTooltip="Edit" (click)="editDialog(element)"><i class="fa fa-pencil-square-o" style="color:#146389" aria-hidden="true"></i></button>
+             <!-- <button class="actionbtn delete" matTooltip="delete" (click)="deleteUser(element._id)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></button> -->
+
+             <button class="actionbtn delete" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getUserDataToDelete(element)"><i class="fa fa-trash text-danger"
+              matTooltip="Delete User" aria-hidden="true"></i></button>
+                </span>
+              </td>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div class="table-box-paginator">
+          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+          aria-label="Select page of periodic elements">
+  </mat-paginator> -->
+  <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20 ,100]"
+      showFirstLastButtons (page)="getUserPaginator($event)" aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+        </div>
+  </div>
+
+
+
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+<div class="modal-dialog modal-confirm modal-dialog-centered">
+  <div class="modal-content deleteModel">
+    <div class="modal-header flex-column">
+      <div class="icon-box">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </div>
+      <h4 class="modal-title w-100">Are you sure to delete
+        <span style="color:red">
+          {{ProjectName}}
+        </span>
+          record?</h4>
+      <button type="button" class="btn-close modelCloseBtn" data-bs-dismiss="modal" aria-label="Close" ></button>
+    </div>
+    <div class="modal-body text-center">
+      <p class="modelDeleteMsg"> Do you realy want to delete? This process cannot be undone </p>
+      <!-- <span>{{element.projectName}} ?</span> -->
+    </div>
+    <div class="m-auto mb-4">
+      <button type="button" class="btn modelSaveBtn" (click)="deleteUser()" data-bs-dismiss="modal">Delete</button>
+    </div>
+
+  </div>
+</div>
+</div>

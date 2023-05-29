@@ -1,0 +1,288 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+} */
+ .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+}
+.mat-form-field{
+  width: 100%;
+}
+.mat-icon-button {
+  float: right;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.actionbtn i{
+  font-size: 20px;
+}
+.userline{
+    width: 53px;
+    height: 5px;
+    background: #ff9800;
+    margin-left: 35%;
+}
+.mat-header-cell {
+  color: black;
+  font-size: 16px;
+  white-space: nowrap;
+    padding: 10px !important;
+    width: 10%;
+}
+.table-box{
+  box-shadow: 0px 0px 8px lightgray;
+  /* border-radius: 10px 10px 0px 0px; */
+}
+.table-box-paginator{
+  box-shadow: 0px 3px 8px lightgrey;
+  /* border-radius: 0px 0px 10px 10px; */
+  overflow: hidden;
+}
+.mat-table thead{
+  background: rgba(20,99,136,0.1);
+}
+.actionbtn img{
+  width: 30px;
+  height: 30px;
+}
+tr.mat-row:hover{
+  background-color: rgb(244, 244, 244);
+}
+.tablebtn{
+  background-color: #ff9800;
+  margin: 0px 10px;
+    color: white;
+    /* border: 1px solid #6969be; */
+    /* padding: 8px 30px; */
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    border-radius: 20px;
+    /* box-shadow: 2px 2px 5px 0px #6969be; */
+}
+.search-input input::placeholder{
+ font-style: italic;
+}
+.search-input{
+  margin:16px;
+  border-radius: 35px;
+  width: 20%;
+}
+.search i{
+  color: #ff9800;
+  font-size: 20px;
+}
+.modalbtn{
+  background-color: #ff9800 !important;
+  margin: 20px 0px;
+  padding: 8px 80px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  color: white !important;
+}
+.mat-dialog-container{
+  padding: 0px 0px !important;
+  border-radius: 10px !important;
+}
+.mobile{
+  display: none !important;
+}
+.addproject.mat-form-field-appearance-outline .mat-form-field-label {
+  top: 2.2em !important;
+  margin-top: -0.25em !important;
+}
+.projectdate.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0.85em !important;
+}
+.addproject.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  transform: translateY(15%);
+}
+.tablebtn:hover{
+  background-color: #ff9800;
+  color: white;
+}
+
+.line{
+  width: 53px;
+  height: 5px;
+  background: #ff9800;
+  margin-left: 32%;
+}
+.logininput .mat-form-field-wrapper {
+  padding-bottom: 0.4em !important;
+}
+
+.mat-form-field-infix {
+  padding: 0.5em 0;
+  border-top: 0px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 10px !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-animation: autofill 0s forwards;
+    animation: autofill 0s forwards;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 0.25em;
+}
+.searchStyle{
+  /* background-color:#146389; */
+  height:55px;
+  border-radius: 15px;
+  margin-top: 25px;
+}
+.container-fluid{
+  padding: 0px 30px;
+}
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 24px !important;
+}
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-left: 24px !important;
+}
+.delete i{
+  color: white !important;
+  background: #b11a1a;
+  height: 10px;
+  width: 10px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 15px;
+}
+@keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
+}
+
+@-webkit-keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
+}
+@media only screen and (max-width:1150px){
+  .search-input {
+    width: 30%;
+  }
+}
+@media only screen and (max-width:992px){
+  .mat-header-cell {
+    font-size: 13px;
+  }
+  .modalbtn {
+    padding: 8px 0px;
+    width: 100%;
+}
+
+}
+@media only screen and (max-width:600px){
+  .search-input {
+    width: 40%;
+  }
+}
+@media only screen and (max-width:500px){
+  .line {
+    margin-left: 30%;
+}
+.container-fluid{
+  padding: 10px;
+}
+.search-input {
+  margin: 16px 10px !important;
+  width: 50%;
+}
+.tablebtn {
+  margin: 20px 10px;
+  margin-top: 20px;
+}
+}
+@media only screen and (max-width: 480px){
+.line {
+    margin-left: 28%;
+}
+}
+@media only screen and (max-width:450px){
+  .tablebtn {
+    margin: 20px 10px;
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+.line {
+  margin-left: 27%;
+}
+.logout{
+  padding: 8px 10px !important;
+}
+/* .mobile{
+  display: flex !important;
+}
+.laptop{
+  display: none !important;
+} */
+}
+
+/* delete Modal css global */
+.deleteModel{
+  width: 60%;
+  margin: auto;
+}
+
+.modelCloseBtn{
+  cursor: pointer;
+  border:solid 1px rgb(128, 128, 128);
+  font-size: 12px;
+  margin-top: 3px !important;
+}
+
+
+/* close */
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.7)
+}
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    transform: translateY(-1.29375em) scale(0.75) !important;
+}
+.modal-backdrop {
+  z-index: 0 !important;
+}
+
+@media only screen and (max-width: 400px){
+.line {
+    margin-left: 23%;
+}
+}
+@media only screen and (max-width: 370px){
+.line {
+    margin-left: 20%;
+}
+}
+@media only screen and (max-width: 330px){
+  .line {
+    margin-left: 17%;
+}
+}
+
+

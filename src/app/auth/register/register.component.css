@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* input{
+   font-family: 'Poppins',sans-serif;
+}
+.containers{
+   position: relative;
+   width:100%;
+   background-color: #fff;
+   min-height: 100vh;
+   overflow: hidden;
+
+}
+.forms-container{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top:0;
+   left: 0;
+}
+form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.title{
+   font-size: 2.2rem;
+   color: #444;
+   margin-bottom: 10px;
+   font-family: 'Poppins',sans-serif;
+   font-weight: 800;
+}
+.input-field{
+   max-width: 380px;
+   width: 100%;
+   height: 55px;
+   background-color: #f0f0f0;
+   margin:10px 0;
+   border-radius: 55px;
+   display: grid;
+   grid-template-columns: 15% 85%;
+   padding: 0 0.4rem;
+   position: relative;
+}
+.input-field i{
+   text-align: center;
+   line-height: 55px;
+   color: #acacac;
+   font-size: 1.5rem;
+}
+.input-field input{
+   background: none;
+   outline: none;
+   border:none;
+   line-height: 1;
+   font-weight: 600;
+   font-size: 1.2rem;
+   color: #333;
+}
+.input-field input:placeholder-shown{
+   color: #aaa;
+   font-weight: 500;
+}
+.btn{
+   width: 150px;
+   height: 49px;
+   outline: none;
+   border: none;
+   border-radius: 48px;
+   background-color: #20dbc2;
+   color: white;
+   text-transform: uppercase;
+   font-weight: 600;
+   margin: 10px 0px;
+   transition: all 0.5s;
+}
+.btn:hover{
+   background-color: #00bfa6;
+}
+.social-text{
+   padding: 0.7rem 0;
+}
+.social-media{
+   display: flex;
+   justify-content: center;
+}
+.social-icon{
+   height: 46px;
+   width: 46px;
+   border: 1px solid #333;
+   margin:0 0.45rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   color: #333;
+   font-size: 1.3rem;
+   border-radius: 50%;
+   transition: all 0.5s;
+}
+.social-icon:hover{
+   color: #20dbc2;
+   border-color: #00bfa6;
+}
+.signin-signup{
+   position: absolute;
+   top:50%;
+   left: 75%;
+   transform: translate(-50%,-50%);
+   display: grid;
+} */
+
+
+
+.loginregisterform {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../../assets/images/people-1979261_960_720.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  padding: 30px;
+}
+
+.loginregisterform::before{
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgb(125, 42, 232,0.3);
+}
+.containers {
+  max-width: 850px;
+  position: relative;
+  width: 100%;
+  background: #f3f1f1;
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  perspective: 2700px;
+}
+
+.containers .cover{
+   position: absolute;
+   height: 100%;
+   width: 50%;
+   z-index: 98;
+   top:0;
+   left: 50%;
+   transition: all 1s ease;
+   transform-origin: left;
+   transform-style: preserve-3d;
+}
+.containers .cover::before{
+   content: '';
+   position: absolute;
+   background-color: #7d2ae8;
+   height: 100%;
+   width: 100%;
+   opacity: 0.5;
+   z-index: 100;
+
+}
+.containers .cover::after{
+   content: '';
+   position: absolute;
+   background-color: #7d2ae8;
+   height: 100%;
+   width: 100%;
+   opacity: 0.5;
+   z-index: 100;
+   transform: rotateY(180deg);
+
+}
+.containers #flip:checked ~ .cover{
+   transform: rotateY(-180deg);
+}
+
+.containers #flip:checked ~.cover .backimg{
+   transform: rotateY(-180deg);
+   backface-visibility: visible;
+} 
+.containers #flip:checked ~.cover .front .text{
+   transform: rotateY(-180deg);
+   backface-visibility: hidden;
+} 
+.containers #flip:checked ~.cover .back .text{
+   transform: rotateY(-180deg);
+   backface-visibility: visible;
+} 
+.containers #flip:checked ~.cover .back .text{
+   transform: rotateY(180deg);
+   backface-visibility: hidden;
+} 
+.containers .cover img{
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   z-index: 12;
+   backface-visibility: hidden;
+}
+.containers .cover img .backimg{
+   transform: rotateY(180deg);
+}
+.containers .cover .text{
+   position: absolute;
+   z-index: 111;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+}
+
+.cover .text .text-1,
+.cover .text .text-2{
+   font-size: 26px;
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+   line-height: 1.4;
+}
+.cover .text .text-2{
+font-size: 15px;
+font-weight: 500;
+}
+.containers form {
+   height: 100%;
+   width: 100%;
+   background: #f3f1f1;
+ }
+
+.containers .form-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+
+/* .form-content .login-form,.form-content .signup-form{
+   width: calc(100%/1 - 25px);
+
+} */
+.form-content form .title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  position: relative;
+
+}
+
+.form-content form .title:before {
+  content: '';
+  /* left: 0; */
+  bottom: -10px;
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background: #7d2ae8;
+}
+
+form .signup-form .title:before {
+  width: 20px;
+}
+
+.form-content form .input-boxes {
+  margin-top: 30px;
+}
+
+.form-content form .input-box {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10 0px;
+    position: relative;
+    margin: 15px 0px;
+}
+mat-form-field{
+    width: 100%;
+}
+
+.form-content .submitbtn {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  color: white;
+  background: #7d2ae8;
+  border-radius: 6px;
+  padding: 0;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.form-content .submitbtn:hover {
+  background-color: #5b13b9;
+}
+
+.form-content .input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  background-color: #f3f1f1;
+}
+
+.form-content .input-box i {
+  position: absolute;
+  color: #7d2ae8;
+  font-size: 17px;
+
+}
+
+.form-content .input-box input:focus {
+  border-color: #7d2ae8;
+  border-width: 2px;
+}
+
+.form-content form .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-content form .text a {
+  text-decoration: none;
+}
+
+.form-content form .text a:hover {
+  text-decoration: underline;
+}
+
+.form-content form label {
+  color: #5b13b9;
+  cursor: pointer;
+}
+
+.form-content form label:hover {
+  text-decoration: underline;
+}
+
+
+#menu-toggle~label i {
+  transition: all ease-in-out .3s;
+}
+.form-content form .login-text,
+.form-content form .sign-up-text {
+  text-align: center;
+  margin-top: 25px !important;
+
+}
+.containers #flip {
+  display: none;
+}
+
+
+
+@media (max-width:730px) {
+   
+ .containers{
+ border-radius: 20px;
+ }
+ .form-content form .title {
+   font-size: 28px;
+   font-weight: 900;
+   color: #333;
+   position: relative;
+   margin-bottom: 40px;
+   text-align: center;
+ }
+    .form-content {
+      display: block !important;
+    }
+ 
+    .form-content .login-form,
+    .form-content .signup-form {
+      width: 100%;
+      display: block;
+    }
+ 
+     
+    form .signup-form .title:before {
+     width: 100px;
+ }
+ .form-content form .title:before {
+   bottom: -12px;
+     text-align: center;
+     width: 125px;
+     left: 50%;
+     transform: translate(-50%,0%);
+     height: 4px;
+ }
+ .registerbtn{
+   display: none;
+ }
+ .registerbtntab{
+   display: block !important;
+ }
+ .loginregisterform{
+   
+   padding: 30px 120px;
+ }
+ .signup-form {
+    margin-left: 0px !important;
+  }
+  }
+  @media only screen and (max-width:580px){
+   .loginregisterform {
+       min-height: 100%;
+       height: 100%;
+       padding: 10px 10px;
+   }
+   .containers{
+       padding: 40px 15px;
+   }
+ }

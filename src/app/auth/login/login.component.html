@@ -1,0 +1,97 @@
+<app-spinner *ngIf="spinner"></app-spinner>
+<div class="loginregisterform">
+    <div class="containers">
+
+
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                    <img class="frontimg" src="../../../assets/images/Untitled design.png" alt="">
+            </div>
+        </div>
+        <div class="form-content" >
+            <form  [formGroup]="InvalidLoginForm">
+                <div class="login-form me-3">
+
+                    <div class="title">Login</div>
+                    <div class="input-boxes">
+                        <div class="input-box input-field mt-4 flex-column">
+                            <i class="fa fa-envelope float-end" aria-hidden="true"></i>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Enter Email</mat-label>
+                                <input matInput type="text" formControlName="inemail">
+                            </mat-form-field>
+                            <div class="error text-start" *ngIf="this.loginForm.get('inemail')?.invalid && this.loginForm.get('inemail')?.touched">
+                                <p>   Email address must include testyantra.in or testyantra.com</p>
+                                   <!-- Must contain testyantra.in or testyantra.com in the email address -->
+                                 </div>
+                        </div>
+
+                        <!-- <div class="input-box input-field">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <input type="password" placeholder="Enter your email">
+                        </div> -->
+
+                        <!-- <div class="text"><a href="#">Forgot password?</a></div> -->
+                        <div class="button input-box justify-content-center">
+                           <button type="submit" class="btn submitbtn" [disabled]="loginForm.invalid">Login</button>
+                        </div>
+                        <!-- <div class="text login-text">
+                            <p class="mt-4 registerbtn">Don't have an account?<label for="flip">Signup now</label></p>
+                            <p class="mt-4 registerbtntab d-none">Don't have an account?<a routerLink="/auth/register">Signup now</a></p>
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+            <form [formGroup]="loginForm" (ngSubmit)='onSubmit()'
+            (keydown.enter)="triggerSubmit()"  >
+                <div class="signup-form ms-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="text logo text-center">
+                            <img class="frontimg" width="80%" src="../../../assets/images/new Logo for website TY transp bg -15.png" alt="">
+
+                            <!-- <h1 class="mb-1 fw-bold fs-1" style="color: #13357b ;">Techno <span style="color:#ff9800;">Elevate</span><br>
+                                <span class="mb-3 fw-bold float-start complex text-dark" >Being Less Complex</span>
+                            </h1> -->
+
+                        </div>
+                    </div>
+                </div>
+                    <div class="title mt-5">Login</div>
+                    <div class="input-boxes mt-5">
+                      <div class="input-box input-field mt-4 flex-column">
+                          <i class="fa fa-envelope float-start" aria-hidden="true"></i>
+
+                          <mat-form-field appearance="outline" class="logininput">
+                              <input matInput type="text" placeholder="Enter Your Email" formControlName="email" style="padding:0px 30px;" autocomplete="off" >
+                          </mat-form-field>
+                          <div class="error text-start" *ngIf="this.loginForm.get('email')?.invalid && this.loginForm.get('email')?.touched">
+                              <p>   Email address must include testyantra.in or testyantra.com</p>
+                                 <!-- Must contain testyantra.in or testyantra.com in the email address -->
+                               </div>
+                      </div>
+
+                      <!-- <div class="input-box input-field">
+                          <i class="fa fa-lock" aria-hidden="true"></i>
+                          <input type="password" placeholder="Enter your email">
+                      </div> -->
+
+                      <!-- <div class="text"><a href="#">Forgot password?</a></div> -->
+                      <div class="button input-box justify-content-center">
+                         <button type="submit" class="btn submitbtn" [disabled]="loginForm.invalid">Login</button>
+                      </div>
+                      <!-- <div class="text login-text">
+                          <p class="mt-4 registerbtn">Don't have an account?<label for="flip">Signup now</label></p>
+                          <p class="mt-4 registerbtntab d-none">Don't have an account?<a routerLink="/auth/register">Signup now</a></p>
+                      </div> -->
+                  </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,589 @@
+
+
+<app-spinner *ngIf="spinner"></app-spinner>
+<div class="container-fluid mb-3">
+ <div class="row">
+   <div class="col-md-3">
+     <button class="btn button-back tablebtn mt-3" (click)="back()" [routerLinkActive]="['active']"><i class="fa fa-angle-left"></i> Back
+     </button>
+   </div>
+ </div>
+
+ <div class="row">
+   <div class="col-sm-12">
+     <div class="invoice-details">
+       <h1>Invoice Details</h1>
+       <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+          <div class="card p-2" style="background: #DFF6F1;">
+            <div>
+              <i class="fa fa-money" aria-hidden="true"></i>
+             </div>
+             <div>
+              <h3 class="mb-0">Total Cost</h3>
+             </div>
+             <div>
+              <h2 class="mb-0">{{totalcost | filter}}</h2>
+             </div>
+          </div>
+        </div>
+         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+           <div class="card p-2" style="background: #D8E1E7;">
+             <div>
+               <i class="fa fa-money" aria-hidden="true"></i>
+              </div>
+              <div>
+               <h3 class="mb-0">Invoiced Amount</h3>
+              </div>
+              <div>
+               <h2 class="mb-0">{{invoicedAmountdata | filter}}</h2>
+              </div>
+           </div>
+         </div>
+         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+          <div class="card p-2" style="background: #EAE6F0;">
+            <div>
+              <i class="fa fa-money" aria-hidden="true"></i>
+             </div>
+             <div>
+              <h3 class="mb-0">To be Invoiced</h3>
+             </div>
+             <div>
+              <h2 class="mb-0">{{yettobeinvoice | filter}}</h2>
+             </div>
+          </div>
+        </div>
+         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 offset-xl-2 mb-3">
+           <div class="card p-2" style="background: #F7D6D0;">
+             <div>
+               <i class="fa fa-money" aria-hidden="true"></i>
+              </div>
+              <div>
+               <h3 class="mb-0">Invoiced & Collected</h3>
+              </div>
+              <div>
+               <h2 class="mb-0">{{totalamountpaid | filter}}</h2>
+              </div>
+              <!-- <div *ngIf="invoiceDetails.length < 1">
+               <h2 class="mb-0">0</h2>
+              </div> -->
+           </div>
+         </div>
+         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4  mb-3">
+           <div class="card p-2" style="background: #F7D6D0;">
+             <div>
+               <i class="fa fa-money" aria-hidden="true"></i>
+              </div>
+              <div>
+               <h3 class="mb-0">Invoiced & Pending</h3>
+              </div>
+              <div>
+               <h2 class="mb-0">{{invoicePending | filter}}</h2>
+              </div>
+              <!-- <div *ngIf="invoiceDetails.length < 1">
+               <h2 class="mb-0">0</h2>
+              </div> -->
+           </div>
+         </div>
+
+
+
+       </div>
+     </div>
+     </div>
+     <div class="col-md-12 col-lg-8">
+       <div >
+         <div class="row">
+           <div class="col-md-6 payment-details">
+            <h1>Payment Details</h1>
+           </div>
+           <div class="col-md-6">
+             <button class="btn float-end addButton"  (click)="openPayment()" >
+               <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+               <span  >
+                 Payment
+               </span>
+             </button>
+           </div>
+         </div>
+
+         <div class=" mt-3 w-100 overflow-scroll table-box" *ngIf="paymentDetails.length > 0">
+           <table mat-table [dataSource]="dataSource">
+             <!-- Position Column -->
+              <ng-container matColumnDef="position">
+               <th mat-header-cell *matHeaderCellDef> Serial No </th>
+               <td mat-cell *matCellDef="let element;let i = index"> {{i+1}}. </td>
+             </ng-container>
+
+             <!-- Name Column -->
+             <ng-container matColumnDef="recievedDate">
+               <th mat-header-cell *matHeaderCellDef> Received Date </th>
+               <td mat-cell *matCellDef="let element"> {{element.recievedDate | date:'dd MMM y' }} </td>
+             </ng-container>
+
+             <!-- Weight Column -->
+             <ng-container matColumnDef="totalAmount">
+               <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+               <td mat-cell *matCellDef="let element"> {{element.totalAmount | filter}} </td>
+             </ng-container>
+
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="transactionNumber">
+               <th mat-header-cell *matHeaderCellDef> Transaction Number </th>
+               <td mat-cell *matCellDef="let element"> {{element.transactionNumber}} </td>
+             </ng-container>
+             <!-- <ng-container matColumnDef="AddPayment">
+               <th mat-header-cell *matHeaderCellDef> Add Payment</th>
+               <td mat-cell *matCellDef="let element" class="text-center">
+                 <span>
+                   <button class="actionbtn" (click)="openPayment(element)"><img src="../../../assets/images/cash-payment .png" alt=""></button>
+                 </span>
+                 </td>
+             </ng-container> -->
+             <ng-container matColumnDef="Action">
+               <th mat-header-cell *matHeaderCellDef> Action </th>
+               <td mat-cell *matCellDef="let element" style="width: 10%;">
+                 <span class="d-flex">
+                   <button class="actionbtn" matTooltip="Edit" (click)="editpaymentDialog(element)"><i class="fa fa-pencil-square-o" style="color:#146389" aria-hidden="true"></i></button>
+              <!-- <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#invoicedetails" matTooltip="delete" (click)="deletepayment(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button> -->
+              <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#invoicedetails" matTooltip="Delete" (click)="deletepayment(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button>
+                 </span>
+               </td>
+
+             </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="paymentColumns"></tr>
+             <tr mat-row *matRowDef="let row; columns: paymentColumns;"></tr>
+           </table>
+         </div>
+
+         <div *ngIf="paymentDetails.length < 1" >
+             <mat-card class="matCard">
+               <p class="mt-2"> Payment has not been done</p>
+              </mat-card>
+         </div>
+
+       </div>
+
+
+       <div class="invoice-details mt-3">
+         <div class="row">
+           <div class="col-md-6">
+             <h1>Invoice Details</h1>
+           </div>
+           <div class="col-md-6">
+             <button class="btn float-end addButton"  (click)="openInvoice()" >
+               <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+               <span  >
+                 Invoice
+               </span>
+             </button>
+           </div>
+         </div>
+         <div class=" mt-3 w-100 overflow-scroll table-box" *ngIf="invoiceDetails.length > 0">
+           <table mat-table [dataSource]="invoicedataSource">
+             <!-- Position Column -->
+              <ng-container matColumnDef="position">
+               <th mat-header-cell *matHeaderCellDef> Sl No </th>
+               <td mat-cell *matCellDef="let element;let i = index"> {{i+1}}. </td>
+             </ng-container>
+
+             <!-- Name Column -->
+             <ng-container matColumnDef="invoiceAmount">
+               <th mat-header-cell *matHeaderCellDef> Amount </th>
+               <td mat-cell *matCellDef="let element"> {{element.invoiceAmount | filter}} </td>
+             </ng-container>
+
+             <!-- Weight Column -->
+             <ng-container matColumnDef="invoiceDate">
+               <th mat-header-cell *matHeaderCellDef>Date</th>
+               <td mat-cell *matCellDef="let element"> {{element.invoiceDate | date:'dd MMM y'}} </td>
+             </ng-container>
+
+             <ng-container matColumnDef="selectedMileStone">
+              <th mat-header-cell *matHeaderCellDef>MileStone</th>
+              <td mat-cell *matCellDef="let element"> {{element.selectedMileStone}} </td>
+            </ng-container>
+
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="invoiceNumber">
+               <th mat-header-cell *matHeaderCellDef> Invoice Number </th>
+               <td mat-cell *matCellDef="let element"> {{element.invoiceNumber}} </td>
+             </ng-container>
+             <ng-container matColumnDef="paymentterm">
+               <th mat-header-cell *matHeaderCellDef> Payment Term </th>
+               <td mat-cell *matCellDef="let element"> {{element.paymentterm}} </td>
+             </ng-container>
+
+             <ng-container matColumnDef="Action">
+               <th mat-header-cell *matHeaderCellDef> Action </th>
+               <td mat-cell *matCellDef="let element" style="width: 10%;">
+                 <span class="d-flex">
+                   <button class="actionbtn" matTooltip="Edit" (click)="editinvoiceDialog(element)"><i class="fa fa-pencil-square-o" style="color:#146389" aria-hidden="true"></i></button>
+              <!-- <button class="actionbtn" matTooltip="delete" (click)="deleteinvoice(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button> -->
+              <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#paymentdetails" matTooltip="Delete" (click)="deleteinvoice(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button>
+                 </span>
+               </td>
+
+             </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="invoiceColumns"></tr>
+             <tr mat-row *matRowDef="let row; columns: invoiceColumns;"></tr>
+           </table>
+         </div>
+
+         <div  *ngIf="invoiceDetails.length < 1">
+           <mat-card class="matCard">
+            <p class="mt-2"> Invoice has been not raised</p>
+           </mat-card>
+         </div>
+       </div>
+
+       <div class="invoice-details mt-3">
+         <div class="row">
+           <div class="col-md-6">
+             <h1>Resource Details</h1>
+           </div>
+           <div class="col-md-6">
+             <button class="btn float-end addButton" (click)="openResource()" >
+               <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+               <span  >
+                 Resource
+               </span>
+             </button>
+           </div>
+         </div>
+         <div class=" mt-3 w-100 overflow-scroll table-box" *ngIf="resourceDetails.length > 0">
+           <table mat-table [dataSource]="resourcedataSource">
+             <!-- Position Column -->
+              <ng-container matColumnDef="position">
+               <th mat-header-cell *matHeaderCellDef> Serial No </th>
+               <td mat-cell *matCellDef="let element;let i = index"> {{i+1}}. </td>
+             </ng-container>
+
+             <!-- Name Column -->
+             <ng-container matColumnDef="employeeId">
+               <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+               <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+             </ng-container>
+
+             <!-- Weight Column -->
+             <ng-container matColumnDef="fullName">
+               <th mat-header-cell *matHeaderCellDef>Full Name</th>
+               <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+             </ng-container>
+
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="emailId">
+               <th mat-header-cell *matHeaderCellDef> Email Id </th>
+               <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+             </ng-container>
+             <ng-container matColumnDef="payment">
+               <th mat-header-cell *matHeaderCellDef> Payment Term </th>
+               <td mat-cell *matCellDef="let element"> {{element.payment}} </td>
+             </ng-container>
+
+
+             <!-- <ng-container matColumnDef="addResource">
+               <th mat-header-cell *matHeaderCellDef> Add Resource </th>
+               <td mat-cell *matCellDef="let element" class="text-center" style="width: 7%">
+
+                 <span class="text-center">
+                   <button class="actionbtn"  style="width:80px;
+                   height: 20px;" ><i class="fa fa-plus-circle" style="color:#146389;"></i>
+                   </button>
+                 </span>
+               </td>
+             </ng-container> -->
+
+             <ng-container matColumnDef="Action">
+               <th mat-header-cell *matHeaderCellDef> Action </th>
+               <td mat-cell *matCellDef="let element" style="width: 10%;">
+                 <span class="d-flex">
+                   <button class="actionbtn" matTooltip="Edit" (click)="editresourceDialog(element)"><i class="fa fa-pencil-square-o" style="color:#146389" aria-hidden="true"></i></button>
+              <!-- <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" matTooltip="delete" (click)="deleterResource(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button> -->
+              <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" matTooltip="Delete" (click)="deleterResource(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button>
+                 </span>
+               </td>
+
+             </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="resourceColumns"></tr>
+             <tr mat-row *matRowDef="let row; columns: resourceColumns;"></tr>
+           </table>
+         </div>
+
+         <div  *ngIf="resourceDetails.length < 1">
+           <mat-card class="matCard">
+            <p class="mt-2"> Resource has not been added</p>
+           </mat-card>
+         </div>
+       </div>
+
+       <div class="invoice-details mt-3">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>MileStone Details</h1>
+          </div>
+          <div class="col-md-6">
+            <button class="btn float-end addButton" (click)="openMileStone()" >
+              <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+              <span  >
+                MileStone
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class=" mt-3 w-100 overflow-scroll table-box" *ngIf="mileStoneDetails.length > 0">
+          <table mat-table [dataSource]="mileStonedataSource">
+            <!-- Position Column -->
+             <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> SlNo </th>
+              <td mat-cell *matCellDef="let element;let i = index"> {{i+1}}. </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="milestone">
+              <th mat-header-cell *matHeaderCellDef> MileStone</th>
+              <td mat-cell *matCellDef="let element"> {{element.milestone}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="paymentPercent">
+              <th mat-header-cell *matHeaderCellDef>Percentage</th>
+              <td mat-cell *matCellDef="let element"> {{element.paymentPercent}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="milestonedetails">
+              <th mat-header-cell *matHeaderCellDef> Details</th>
+              <td mat-cell *matCellDef="let element"> {{element.milestonedetails}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="mileStoneAmount">
+              <th mat-header-cell *matHeaderCellDef> Amount</th>
+              <td mat-cell *matCellDef="let element"> {{element.mileStoneAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startMileStoneDate">
+              <th mat-header-cell *matHeaderCellDef> Start</th>
+              <td mat-cell *matCellDef="let element"> {{element.startMileStoneDate | date:'dd MMM y'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endMileStoneDate">
+              <th mat-header-cell *matHeaderCellDef> End</th>
+              <td mat-cell *matCellDef="let element"> {{element.endMileStoneDate | date:'dd MMM y'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actualEndDate">
+              <th mat-header-cell *matHeaderCellDef> Actual End Date</th>
+              <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.actualEndDate === null" >
+                  -
+                </ng-container>
+                  <ng-container *ngIf="element.actualEndDate !== null" >
+                    {{element.actualEndDate | date:'dd MMM y'}}
+                  </ng-container>
+                   </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element" style="width: 10%;">
+                <span class="d-flex">
+                  <button class="actionbtn" matTooltip="Edit" (click)="editMileStoneDialog(element)"><i class="fa fa-pencil-square-o" style="color:#146389" aria-hidden="true"></i></button>
+             <button class="actionbtn" data-bs-toggle="modal" data-bs-target="#mileStoneDetails" matTooltip="Delete" (click)="deleterMileStone(element._id)"><i class="fa fa-trash deletebtn" aria-hidden="true"></i></button>
+             <button class="actionbtn" *ngIf="element.actualEndDate === null"   (click)="editEndDateStoneDialog(element)"  matTooltip="Mark completed">
+              <i class="fa fa-light fa-check"></i>
+            </button>
+
+
+                </span>
+              </td>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="mileStoneColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: mileStoneColumns;"></tr>
+          </table>
+        </div>
+
+        <div  *ngIf="mileStoneDetails.length < 1">
+          <mat-card class="matCard">
+           <p class="mt-2"> MileStone has not been added</p>
+          </mat-card>
+        </div>
+      </div>
+     </div>
+
+
+   <div class="col-md-12 col-lg-4">
+     <div class="project-details mt-3">
+       <div class="card p-4">
+         <h1 class="fw-bold">Project Details</h1>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Client Name</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{clientName}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Project Name</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{projectName}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Project Cost</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{projectCost | filter}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;"> Project Lead</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{projectLead}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Project Manager</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{projectManager}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Project Type</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{projectType}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Start Date</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{startDate | date:'dd MMM y'}}</h4>
+         </div>
+
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Team Lead </mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{teamLead}}</h4>
+         </div>
+
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">End Date</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{endDate | date:'dd MMM y'}}</h4>
+         </div>
+
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">BD Manger</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{businessDevelopmentManger}}</h4>
+         </div>
+
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Status</mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{status}}</h4>
+         </div>
+         <div class="d-flex align-items-center mb-3">
+           <mat-label class="d-block formLabels" style="width: 40%;">Remarks </mat-label>
+           <span style="width:10%">:</span>
+           <h4 class="mb-0" style="width: 40%;">{{Remarks}}</h4>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+ <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdrop"
+ aria-hidden="true">
+ <div class="modal-dialog modal-confirm modal-dialog-centered">
+   <div class="modal-content deleteModel">
+     <div class="modal-header flex-column">
+       <div class="icon-box">
+         <i class="fa fa-trash" aria-hidden="true"></i>
+       </div>
+       <h4 class="modal-title w-100">Are you sure to delete  record?</h4>
+       <button type="button" class="btn-close modelCloseBtn" data-bs-dismiss="modal" aria-label="Close" ></button>
+     </div>
+     <div class="modal-body text-center">
+       <p class="modelDeleteMsg"> Do you realy want to delete? This process cannot be undone </p>
+       <!-- <span>{{element.projectName}} ?</span> -->
+     </div>
+     <div class="m-auto mb-4">
+       <button type="button" class="btn modelSaveBtn" (click)="deleteResourceData()" data-bs-dismiss="modal">Delete</button>
+     </div>
+
+   </div>
+ </div>
+ </div>
+
+
+ <div class="modal fade" id="invoicedetails" tabindex="-1" aria-labelledby="invoicedetails"
+aria-hidden="true">
+<div class="modal-dialog modal-confirm modal-dialog-centered">
+ <div class="modal-content deleteModel">
+   <div class="modal-header flex-column">
+     <div class="icon-box">
+       <i class="fa fa-trash" aria-hidden="true"></i>
+     </div>
+     <h4 class="modal-title w-100">Are you sure to delete record?</h4>
+     <button type="button" class="btn-close modelCloseBtn" data-bs-dismiss="modal" aria-label="Close" ></button>
+   </div>
+   <div class="modal-body text-center">
+     <p class="modelDeleteMsg"> Do you realy want to delete? This process cannot be undone </p>
+     <!-- <span>{{element.projectName}} ?</span> -->
+   </div>
+   <div class="m-auto mb-4">
+     <button type="button" class="btn modelSaveBtn" (click)="deletePaymentData()" data-bs-dismiss="modal">Delete</button>
+   </div>
+
+ </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="paymentdetails" tabindex="-1" aria-labelledby="paymentdetails"
+ aria-hidden="true">
+ <div class="modal-dialog modal-confirm modal-dialog-centered">
+   <div class="modal-content deleteModel">
+     <div class="modal-header flex-column">
+       <div class="icon-box">
+         <i class="fa fa-trash" aria-hidden="true"></i>
+       </div>
+       <h4 class="modal-title w-100">Are you sure to delete  record?</h4>
+       <button type="button" class="btn-close modelCloseBtn" data-bs-dismiss="modal" aria-label="Close" ></button>
+     </div>
+     <div class="modal-body text-center">
+       <p class="modelDeleteMsg"> Do you realy want to delete? This process cannot be undone </p>
+       <!-- <span>{{element.projectName}} ?</span> -->
+     </div>
+     <div class="m-auto mb-4">
+       <button type="button" class="btn modelSaveBtn" (click)="deleteInvoiceData()" data-bs-dismiss="modal">Delete</button>
+     </div>
+
+   </div>
+ </div>
+ </div>
+
+
+
+ <div class="modal fade" id="mileStoneDetails" tabindex="-1" aria-labelledby="mileStoneDetails"
+ aria-hidden="true">
+ <div class="modal-dialog modal-confirm modal-dialog-centered">
+   <div class="modal-content deleteModel">
+     <div class="modal-header flex-column">
+       <div class="icon-box">
+         <i class="fa fa-trash" aria-hidden="true"></i>
+       </div>
+       <h4 class="modal-title w-100">Are you sure to delete  record?</h4>
+       <button type="button" class="btn-close modelCloseBtn" data-bs-dismiss="modal" aria-label="Close" ></button>
+     </div>
+     <div class="modal-body text-center">
+       <p class="modelDeleteMsg"> Do you realy want to delete? This process cannot be undone </p>
+       <!-- <span>{{element.projectName}} ?</span> -->
+     </div>
+     <div class="m-auto mb-4">
+       <button type="button" class="btn modelSaveBtn" (click)="deleteMileStoneData()" data-bs-dismiss="modal">Delete</button>
+     </div>
+
+   </div>
+ </div>
+ </div>

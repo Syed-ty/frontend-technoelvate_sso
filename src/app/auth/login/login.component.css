@@ -1,0 +1,386 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;@400;500;600;700&display=swap');
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   /* font-family: "Poppins", sans-serif; */
+ }
+ .loginregisterform {
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-image: url('../../../assets/images/background_.webp');
+   background-repeat: no-repeat;
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   padding: 30px;
+   position: fixed;
+ }
+
+ .error{
+  font-size: 12px;
+  font-weight: 450;
+  color: red;
+ }
+
+ .loginregisterform::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgb(0, 0, 0, 0.3);
+ }
+
+ .containers {
+   max-width: 850px;
+   position: relative;
+   width: 100%;
+   background: #f3f1f1;
+   padding: 40px 30px;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   perspective: 2700px;
+   border-radius: 20px;
+   height: 500px;
+ }
+
+ .containers .cover {
+  position: absolute;
+  height: 97%;
+  width: 50%;
+  z-index: 98;
+  top: 0;
+  left: 0%;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 8px;
+ }
+
+
+ .complex{
+  font-size: 12px;
+  margin-left: 15%;
+ }
+ .logo h1,h5{
+  font-family: cursive;
+ }
+
+ .containers #flip:checked~.cover {
+   transform: rotateY(-180deg);
+ }
+
+ .containers #flip:checked~.cover .backimg {
+   transform: rotateY(-180deg);
+   backface-visibility: visible;
+ }
+
+ .containers #flip:checked~.cover .front .text {
+   transform: rotateY(-180deg);
+   backface-visibility: hidden;
+ }
+
+ .containers #flip:checked~.cover .back .text {
+   transform: rotateY(-180deg);
+   backface-visibility: visible;
+ }
+
+ .containers #flip:checked~.cover .back .text {
+   transform: rotateY(180deg);
+   backface-visibility: hidden;
+ }
+
+ .containers .cover img {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   /* object-fit: cover; */
+   z-index: 12;
+   backface-visibility: hidden;
+   border-radius: 0px 20px 20px 0px;
+ }
+
+ .containers .cover img .backimg {
+   transform: rotateY(180deg);
+ }
+
+ .containers .cover .text {
+   position: absolute;
+   z-index: 111;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+ }
+
+ .cover .text .text-1,
+ .cover .text .text-2 {
+   font-size: 26px;
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+   line-height: 1.4;
+ }
+
+ .cover .text .text-2 {
+   font-size: 15px;
+   font-weight: 500;
+ }
+
+ .containers form {
+   height: 100%;
+   width: 100%;
+   background: #f3f1f1;
+   /* margin-top: 45px; */
+ }
+
+ .containers .form-content {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   justify-content: space-between;
+   /* flex-direction: column; */
+ }
+
+
+ /* .form-content .login-form,.form-content .signup-form{
+    width: calc(100%/1 - 25px);
+
+} */
+ .form-content form .title {
+  font-size: 35px;
+  font-weight: 600;
+  color: #146389;
+  position: relative;
+  /* font-family: cursive; */
+ }
+
+ .form-content form .title:before {
+   content: '';
+   left: 0;
+   bottom: -20px;
+   position: absolute;
+   height: 4px;
+   width: 35px;
+   background: #ff9800;
+ }
+
+ form .signup-form .title:before {
+   width: 80px;
+ }
+
+ .form-content form .input-boxes {
+   margin-top: 30px;
+ }
+
+ .form-content form .input-box {
+   /* height: 60px; */
+   width: 100%;
+   display: flex;
+   align-items: center;
+   margin: 10 0px;
+   position: relative;
+   margin: 15px 0px;
+   background: #f3f1f1;
+ }
+ mat-form-field{
+  width: 100%;
+}
+
+
+ .form-content .submitbtn {
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  color: white;
+  background: #ff9800;
+  border-radius: 10px;
+  padding: 10px 30px;
+  margin-top: 0px;
+  cursor: pointer;
+ }
+
+
+ /* .form-content .input-box input {
+   height: 100%;
+   width: 100%;
+   outline: none;
+   border: none;
+   padding: 0 30px;
+   font-size: 16px;
+   font-weight: 500;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   transition: all 0.3s ease;
+   background-color: #f3f1f1;
+   border-radius: 10px;
+ } */
+
+ .form-content .signup-form .input-box i {
+  position: absolute;
+    color: #146389;
+    font-size: 20px;
+    left: 10px;
+    top: 11px;
+ }
+
+ .form-content .input-box input:focus {
+   border-color: #7d2ae8;
+   border-width: 2px;
+ }
+
+ .form-content form .text {
+   font-size: 14px;
+   font-weight: 500;
+   color: #333;
+   /* margin-top: 30px; */
+ }
+
+ .form-content form .text a {
+   text-decoration: none;
+ }
+
+ .form-content form .text a:hover {
+   text-decoration: underline;
+ }
+
+ .form-content form label {
+   color: #5b13b9;
+   cursor: pointer;
+ }
+
+ .form-content form .registerbtntab a {
+   color: #5b13b9;
+   cursor: pointer;
+ }
+
+ .form-content form label:hover {
+   text-decoration: underline;
+ }
+
+ .form-content form .registerbtntab a:hover {
+   text-decoration: underline;
+ }
+
+ #menu-toggle~label i {
+   transition: all ease-in-out .3s;
+ }
+
+ .form-content form .login-text,
+ .form-content form .sign-up-text {
+   text-align: center;
+   margin-top: 50px !important;
+
+ }
+
+ .containers #flip {
+   display: none;
+ }
+
+
+
+ @media (max-width:767px) {
+   .containers .cover {
+     display: none;
+   }
+
+   .containers {
+     border-radius: 20px;
+   }
+
+   .form-content form .title {
+     font-size: 28px;
+     font-weight: 900;
+     color: #146389;
+     position: relative;
+     margin-bottom: 40px;
+     text-align: center;
+   }
+
+   .form-content {
+     display: block !important;
+   }
+
+   .form-content .login-form,
+   .form-content .signup-form {
+     width: 100%;
+     display: block;
+   }
+
+   .form-content .signup-form {
+     display: block;
+   }
+   .form-content .login-form{
+    display: none;
+   }
+
+   .containers #flip:checked~form .signup-form {
+     display: block;
+   }
+
+   .containers #flip:checked~form .login-form {
+     display: none;
+   }
+
+
+
+   .containers #flip:checked~.login-form {
+     background-color: red;
+   }
+
+   form .signup-form .title:before {
+     width: 100px;
+   }
+
+   .form-content form .title:before {
+     bottom: -12px;
+     text-align: center;
+     width: 125px;
+     left: 50%;
+     transform: translate(-50%, 0%);
+     height: 4px;
+   }
+
+   .registerbtn {
+     display: none;
+   }
+
+   .registerbtntab {
+     display: block !important;
+   }
+
+   .loginregisterform {
+
+     padding: 30px 120px;
+   }
+   .signup-form {
+    margin-left: 0px !important;
+  }
+ }
+
+ @media only screen and (max-width:580px) {
+   .loginregisterform {
+     min-height: 100%;
+     height: 100%;
+     padding: 10px 10px;
+   }
+
+   .containers {
+     padding: 40px 15px;
+   }
+
+
+ }

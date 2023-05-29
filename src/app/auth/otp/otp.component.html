@@ -1,0 +1,26 @@
+<app-spinner *ngIf="spinner"></app-spinner>
+  <div class="container-fluid h-100">
+    <div class="d-flex align-items-center justify-content-center flex-column h-100">
+      <form [formGroup]="otpForm"  (ngSubmit)='onSubmit()'>
+        <div>
+          <!-- <h3>Verify your OTP</h3> -->
+          <h3>Enter your OTP here</h3>
+        </div>
+          <div>
+            <ng-otp-input  (onInputChange)="onOtpChange($event)" #ngOtpInput  [config]="config"></ng-otp-input>
+          </div>
+          <div>
+
+              <div class="text-center">
+                  <button class="btn" type="submit" [disabled]="otpForm.get('otp')?.value?.length!== 6">Submit</button>
+              </div>
+              <div class="text-center fs-5">
+                  <button type="button" (click)="resendOtp()" class="resend">Resend otp</button>
+              </div>
+
+          </div>
+        </form>
+      </div>
+  </div>
+
+

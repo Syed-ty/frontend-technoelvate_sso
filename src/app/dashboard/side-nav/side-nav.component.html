@@ -1,0 +1,38 @@
+
+<!-- <mat-divider></mat-divider> -->
+<div class="side-nav-content border-white">
+<mat-nav-list>
+
+    <a mat-list-item class="border-white" [routerLink]="['/dashboard/dashboard']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+        <span class="icon">
+            <img src="../../../assets/images/dashboard.png" style="width:100%">
+        </span>
+          </a>
+          <div class="listname" >
+            Dashboard
+        </div>
+    <a mat-list-item class="border-white" *ngIf="ManagerView"  [routerLink]="['/dashboard/project-management']" [ngClass]="{'actives' : router.url === '/dashboard/invoice'}"  [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+        <span class="icon">
+            <img src="../../../assets/images/project_management.png" style="width:100%">
+        </span>
+    </a>
+    <div *ngIf="ManagerView" class="listname" >
+        Projects
+    </div>
+
+    <a mat-list-item class="border-white" *ngIf="AdminView" [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+        <span class="icon">
+            <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
+        </span>
+    </a>
+    <div *ngIf="AdminView" class="listname">
+        Users
+    </div>
+    <!-- <a mat-list-item [routerLink]="['/dashboard/payment']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+        <span class="icon"><i class="fa fa-cc-paypal" aria-hidden="true"></i></span><span class="listName">Payment</span>
+    </a>
+    <a mat-list-item [routerLink]="['/dashboard/invoice']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+        <span class="icon"><i class="fa fa-cc-paypal" aria-hidden="true"></i></span><span class="listName">Invoice</span>
+    </a> -->
+</mat-nav-list>
+</div>
