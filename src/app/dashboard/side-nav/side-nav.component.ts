@@ -31,16 +31,16 @@ sideBarOpen:boolean=false
       localStorage.getItem('UserDetails') as string
     );
     this.userService.getUserByEmailId(subjectData.email).subscribe((res)=>{
-      if(res.response.role === 'Admin'){
+      // if(res.response.role === 'Admin'){
         this.AdminView = true;
         this.ManagerView = true;
         // this.router.navigateByUrl('dashboard/user-management')
-      }
-      if(res.response.role === 'Manager'){
-        this.ManagerView = true;
-        this.AdminView = false
-        this.router.navigateByUrl('dashboard/project-management')
-      }
+      // }
+      // if(res.response.role === 'Manager'){
+      //   this.ManagerView = true;
+      //   this.AdminView = false
+      //   this.router.navigateByUrl('dashboard/project-management')
+      // }
     })
 
   }

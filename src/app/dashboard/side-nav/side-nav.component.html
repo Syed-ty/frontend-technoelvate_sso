@@ -11,14 +11,14 @@
           <div class="listname" >
             Dashboard
         </div>
-    <a mat-list-item class="border-white" *ngIf="ManagerView"  [routerLink]="['/dashboard/project-management']" [ngClass]="{'actives' : router.url === '/dashboard/invoice'}"  [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+    <!-- <a mat-list-item class="border-white" *ngIf="ManagerView"  [routerLink]="['/dashboard/project-management']" [ngClass]="{'actives' : router.url === '/dashboard/invoice'}"  [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
         <span class="icon">
             <img src="../../../assets/images/project_management.png" style="width:100%">
         </span>
     </a>
     <div *ngIf="ManagerView" class="listname" >
         Projects
-    </div>
+    </div> -->
 
     <a mat-list-item class="border-white" *ngIf="AdminView" [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
         <span class="icon">

@@ -21,7 +21,16 @@ export class AdduserDialogComponent implements OnInit {
       fullName:new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z][a-zA-Z ]*$/)]),
       email:new FormControl('',[Validators.required, Validators.pattern(/^[A-Za-z0-9._%+-]+@testyantra\.com|in$/)]),
       employeeId:new FormControl('',[Validators.required,Validators.maxLength(10) ]),
-      role:new FormControl('',Validators.required)
+      designation:new FormControl('',Validators.required),
+      phoneNumber:new FormControl('',[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')]),
+      gender:new FormControl('',Validators.required),
+      department:new FormControl('',Validators.required),
+      benchHiring:new FormControl(''),
+      marketHiring:new FormControl(''),
+      resourcePool:new FormControl(''),
+      managementSystem:new FormControl(''),
+      pssystem:new FormControl(''),
+      clientOnBoard:new FormControl(''),
     })
    }
 
@@ -46,7 +55,68 @@ export class AdduserDialogComponent implements OnInit {
    }
 
  }
+
+
+ benchEvent(event:any){
+ if(event.checked === true){
+  this.userForm.get('benchHiring')?.setValue('Bench Hiring')
+ }
+ if(event.checked === false){
+  this.userForm.get('benchHiring')?.setValue('')
+ }
+ }
+
+ marketEvent(event:any){
+  if(event.checked === true){
+   this.userForm.get('marketHiring')?.setValue('Market Hiring')
+  }
+  if(event.checked === false){
+    this.userForm.get('marketHiring')?.setValue('')
+   }
+  }
+
+
+  resourcePoolEvent(event:any){
+    if(event.checked === true){
+     this.userForm.get('resourcePool')?.setValue('Resource Pool')
+    }
+    if(event.checked === false){
+      this.userForm.get('resourcePool')?.setValue('')
+     }
+    }
+
+    managementSystemEvent(event:any){
+      if(event.checked === true){
+       this.userForm.get('managementSystem')?.setValue('Management System')
+      }
+      if(event.checked === false){
+        this.userForm.get('managementSystem')?.setValue('')
+       }
+      }
+
+
+      psSystemEvent(event:any){
+        if(event.checked === true){
+         this.userForm.get('pssystem')?.setValue('PS System')
+        }
+        if(event.checked === false){
+          this.userForm.get('pssystem')?.setValue('')
+         }
+        }
+
+        clientOnBoardEvent(event:any){
+          if(event.checked === true){
+           this.userForm.get('clientOnBoard')?.setValue('Client On Board')
+          }
+          if(event.checked === false){
+            this.userForm.get('clientOnBoard')?.setValue('')
+           }
+          }
+
+
+
   onSubmit(){
+    console.log(this.userForm.value);
     this.spinner=true
     this.userservice.addUser(this.userForm.value).subscribe((res)=>{
        if (!res.error) {

@@ -3,43 +3,124 @@
 
 <div class="sticky-top bg-white p-4">
   <div mat-dialog-title class="float-end" mat-dialog-close (click)="cancel()"><i class="fa fa-times" aria-hidden="true"></i></div>
-<h1 mat-dialog-title class="title text-center fw-bold mb-0" style="color: #13357b;">Add User</h1>
-<!-- <div class="userline"></div> -->
+<h1 mat-dialog-title class="title text-center fw-bold mb-0" style="color: #13357b;">Register</h1>
 </div>
 <div>
    <div class="form  p-4">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
             <mat-form-field class="example-full-width addproject" appearance="outline">
                 <mat-label>Full Name</mat-label>
                 <input matInput placeholder="Enter full name" formControlName="fullName">
               </mat-form-field>
         </div>
-        <div class="form-group">
-            <mat-form-field class="example-full-width addproject" appearance="outline">
-                <mat-label>Email ID</mat-label>
-                <input matInput placeholder="Enter email Id" formControlName="email">
-                <mat-error *ngIf="this.userForm.get('email')?.invalid && this.userForm.get('email')?.touched">
-                    Email address must include testyantra.in or testyantra.com
-                </mat-error>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+              <mat-form-field class="example-full-width addproject" appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select disableRipple formControlName="gender">
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value="Female">Female</mat-option>
+                </mat-select>
               </mat-form-field>
         </div>
+        </div>
+        <div class="col-md-4">
         <div class="form-group">
+          <mat-form-field class="example-full-width addproject" appearance="outline">
+              <mat-label>Email ID</mat-label>
+              <input matInput placeholder="Enter email Id" formControlName="email">
+              <mat-error *ngIf="this.userForm.get('email')?.invalid && this.userForm.get('email')?.touched">
+                  Email address must include testyantra.in or testyantra.com
+              </mat-error>
+            </mat-form-field>
+      </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
             <mat-form-field class="example-full-width addproject" appearance="outline">
                 <mat-label>Employee ID</mat-label>
                 <input matInput placeholder="Enter employeeId" formControlName="employeeId"  (input)="inputData($event)">
               </mat-form-field>
               <p *ngIf="inputValueNo"  style="color: red;">EmployeeId Already Exists</p>
         </div>
+        </div>
+        <div class="col-md-4">
         <div class="form-group">
+          <mat-form-field class="example-full-width addproject" appearance="outline">
+              <mat-label>Designation</mat-label>
+              <mat-select disableRipple formControlName="designation">
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="Manager">Manager</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
             <mat-form-field class="example-full-width addproject" appearance="outline">
-                <mat-label>Select Role</mat-label>
-                <mat-select disableRipple formControlName="role">
+                <mat-label>Department</mat-label>
+                <mat-select disableRipple formControlName="department">
                   <mat-option value="Admin">Admin</mat-option>
                   <mat-option value="Manager">Manager</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <mat-form-field class="example-full-width addproject" appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input matInput placeholder="Enter the phone number" type="number" formControlName="phoneNumber">
+            </mat-form-field>
+        </div>
+        </div>
+        <hr>
+         <h3 class="title text-center fw-bold mb-0" style="color: #13357b;">Provide Access to the application</h3>
+         <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>Bench Hiring</mat-label>
+                <mat-checkbox formControlName="benchHiring" (change)="benchEvent($event)"></mat-checkbox>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>Market Hiring</mat-label>
+                <mat-checkbox formControlName="marketHiring" (change)="marketEvent($event)"></mat-checkbox>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>Resource Pool</mat-label>
+                <mat-checkbox formControlName="resourcePool" (change)="resourcePoolEvent($event)"></mat-checkbox>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>Mangement System</mat-label>
+                <mat-checkbox formControlName="managementSystem"  (change)="managementSystemEvent($event)" ></mat-checkbox>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>PS</mat-label>
+                <mat-checkbox formControlName="pssystem" (change)="psSystemEvent($event)"></mat-checkbox>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+                <mat-label>Client on Board</mat-label>
+                <mat-checkbox formControlName="clientOnBoard" (change)="clientOnBoardEvent($event)"></mat-checkbox>
+        </div>
+        </div>
+      </div>
+
+
+
         <div class="form-group text-center">
             <button class="btn modalbtn" [disabled]="userForm.invalid || inputValueNo">Submit</button>
         </div>

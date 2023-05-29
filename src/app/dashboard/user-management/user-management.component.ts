@@ -24,7 +24,7 @@ export interface PeriodicElement {
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = ['fullName', 'email', 'employeeId','role','action'];
+  displayedColumns: string[] = ['fullName', 'email', 'employeeId','designation','action'];
   // dataSource:MatTableDataSource<any[]> = new MatTableDataSource<any[]>([]);
   dataSource:any;
 
@@ -129,7 +129,8 @@ export class UserManagementComponent implements OnInit,AfterViewInit {
 
   openDialog() {
     const dialogRef= this.dialog.open(AdduserDialogComponent,{
-      width:'450px'
+      width: '900px',
+      height: '85%',
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'add') {
