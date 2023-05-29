@@ -142,12 +142,12 @@ export class UserManagementComponent implements OnInit,AfterViewInit {
   }
   editDialog(row:any){
     const dialogRef= this.dialogss.open(EdituserDialogComponent,{
-      width:'450px',
+      width: '900px',
+      height: '85%',
       data:row
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'update') {
-
         this.getUser();
         this.spinner=false;
       }

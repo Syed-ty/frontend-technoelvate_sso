@@ -6,28 +6,22 @@
     <div class="col-sm-12">
       <div class="invoice-details">
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
-            <div class="card p-2" style="background: #EAE7FA;" *ngIf="benchEvent" >
-              <div class="d-flex align-items-center">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <h3 class="mb-0 ms-3">Bench Hiring</h3>
-               </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3">
+            <div class="card d-flex align-items-center p-2" style="background: #EAE7FA;flex-direction: row;padding: 26px 20px !important;" *ngIf="benchEvent" >
                <div>
                 <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
                   <span class="icon">
-                      <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
+                      <img src="../../../assets/images/hiring.png" style="width:30px;height: 30px;">
                   </span>
               </a>
-
-            </div>
+              </div>
+            <div class="d-flex align-items-center">
+              <h3 class="mb-0 ms-3">Bench Hiring</h3>
+             </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngIf="marketEvent">
-            <div class="card p-2" style="background-color: #D8E1E7;">
-              <div class="d-flex align-items-center" >
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <h3 class="mb-0 ms-3">Market Hiring</h3>
-               </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3" *ngIf="marketEvent">
+            <div class="card d-flex align-items-center p-2" style="background-color: #D8E1E7;flex-direction: row;padding: 26px 20px !important;">
                <div >
                 <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
                   <span class="icon">
@@ -35,14 +29,42 @@
                   </span>
               </a>
             </div>
+            <div class="d-flex align-items-center" >
+              <h3 class="mb-0 ms-3">Market Hiring</h3>
+             </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngIf="resourceEvent">
-            <div class="card p-2" style="background-color: #DFF6F1;">
-              <div class="d-flex align-items-center">
-                <i class="fa fa-money" aria-hidden="true"></i>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3" *ngIf="resourceEvent">
+            <div class="card d-flex align-items-center p-2" style="background-color: #DFF6F1;flex-direction: row;padding: 26px 20px !important;">
+               <div >
+                <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+                  <span class="icon">
+                      <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
+                  </span>
+              </a>
+               </div>
+               <div class="d-flex align-items-center">
                 <h3 class="mb-0 ms-3">Resource Pool</h3>
                </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3" *ngIf="ManagementEvent">
+            <div class="card  d-flex align-items-center p-2" style="background-color: #EFEBE0;flex-direction: row;padding: 26px 20px !important;">
+
+               <div >
+                <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
+                  <span class="icon">
+                      <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
+                  </span>
+              </a>               </div>
+              <div class="d-flex align-items-center">
+                <h3 class="mb-0 ms-3">Management System</h3>
+               </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3" *ngIf="psSystemEvent">
+            <div class="card  d-flex align-items-center p-2" style="background-color: #F7D6D0;flex-direction: row;padding: 26px 20px !important;">
+
                <div >
                 <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
                   <span class="icon">
@@ -50,54 +72,28 @@
                   </span>
               </a>
                </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngIf="ManagementEvent">
-            <div class="card p-2" style="background-color: #EFEBE0;">
-              <div class="d-flex align-items-center">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <h3 class="mb-0 ms-3">Management System</h3>
-               </div>
-               <div >
-                <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
-                  <span class="icon">
-                      <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
-                  </span>
-              </a>               </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngIf="psSystemEvent">
-            <div class="card p-2" style="background-color: #F7D6D0;">
-              <div class="d-flex align-items-center">
-                <i class="fa fa-money" aria-hidden="true"></i>
+               <div class="d-flex align-items-center">
                 <h3 class="mb-0 ms-3">PS</h3>
                </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3" *ngIf="ClientEvent">
+            <div class="card  d-flex align-items-center p-2" style="background-color: #EAE6F0;flex-direction: row;padding: 26px 20px !important;">
+
                <div >
                 <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
                   <span class="icon">
                       <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
                   </span>
-              </a>               </div>
+              </a>
+             </div>
+             <div class="d-flex align-items-center">
+              <h3 class="mb-0 ms-3">
+                Client on Board
+               </h3>
+             </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3" *ngIf="ClientEvent">
-            <div class="card p-2" style="background-color: #EAE6F0;">
-              <div class="d-flex align-items-center">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <h3 class="mb-0 ms-3">
-                  Client on Board
-                 </h3>
-               </div>
-               <div >
-                <a mat-list-item class="border-white"  [routerLink]="['/dashboard/user-management']" [routerLinkActive]="['active']" (keydown.escape)="$event.stopPropagation()">
-                  <span class="icon">
-                      <img src="../../../assets/images/usermanagement.png" style="width:30px;height: 30px;">
-                  </span>
-              </a>               </div>
-            </div>
-          </div>
-
-
   </div>
 </div>
 </div>

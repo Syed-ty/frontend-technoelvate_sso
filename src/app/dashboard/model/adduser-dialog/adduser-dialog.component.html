@@ -83,38 +83,57 @@
          <h3 class="title text-center fw-bold mb-0" style="color: #13357b;">Provide Access to the application</h3>
          <div class="col-md-4">
           <div class="form-group">
-                <mat-label>Bench Hiring</mat-label>
-                <mat-checkbox formControlName="benchHiring" (change)="benchEvent($event)"></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="benchHiring" (change)="benchEvent($event)"></mat-checkbox>
+             &nbsp;                 <mat-label>Bench Hiring</mat-label>
+
+            </span>
+
         </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-                <mat-label>Market Hiring</mat-label>
-                <mat-checkbox formControlName="marketHiring" (change)="marketEvent($event)"></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="marketHiring" (change)="marketEvent($event)"></mat-checkbox>
+              &nbsp;
+              <mat-label>Market Hiring</mat-label>
+            </span>
         </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-                <mat-label>Resource Pool</mat-label>
-                <mat-checkbox formControlName="resourcePool" (change)="resourcePoolEvent($event)"></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="resourcePool" (change)="resourcePoolEvent($event)"></mat-checkbox>
+              &nbsp;
+              <mat-label>Resource Pool</mat-label>
+            </span>
         </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
           <div class="form-group">
-                <mat-label>Mangement System</mat-label>
-                <mat-checkbox formControlName="managementSystem"  (change)="managementSystemEvent($event)" ></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="managementSystem"  (change)="managementSystemEvent($event)" ></mat-checkbox>
+              &nbsp;
+              <mat-label>Mangement System</mat-label>
+            </span>
         </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
           <div class="form-group">
-                <mat-label>PS</mat-label>
-                <mat-checkbox formControlName="pssystem" (change)="psSystemEvent($event)"></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="pssystem" (change)="psSystemEvent($event)"></mat-checkbox>
+              &nbsp;
+              <mat-label>PS</mat-label>
+            </span>
         </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
           <div class="form-group">
-                <mat-label>Client on Board</mat-label>
-                <mat-checkbox formControlName="clientOnBoard" (change)="clientOnBoardEvent($event)"></mat-checkbox>
+            <span>
+              <mat-checkbox formControlName="clientOnBoard" (change)="clientOnBoardEvent($event)"></mat-checkbox>
+              &nbsp;
+              <mat-label>Client on Board</mat-label>
+            </span>
         </div>
         </div>
       </div>
